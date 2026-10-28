@@ -1,0 +1,6 @@
+{
+  "name": "Professor Cauan | Jiu-Jitsu, Aulas & Personal Fight",
+  "description": "Site oficial do Professor Cauan - Faixa Preta de Brazilian Jiu-Jitsu e Atleta. Aulas particulares, turmas coletivas, seminários e preparação para competições.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
