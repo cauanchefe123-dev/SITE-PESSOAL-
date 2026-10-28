@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, UserCheck, Users, Sparkles, Trophy, Flame, Play } from 'lucide-react';
+import { ChevronRight, UserCheck, Users, Sparkles, Trophy, Flame } from 'lucide-react';
 import { ProfessorProfile } from '../types/bjj';
 import { IMAGES } from '../assets/images';
 
@@ -7,10 +7,9 @@ interface HeroProps {
   profile: ProfessorProfile;
   onOpenBooking: () => void;
   onOpenCurriculum: () => void;
-  onOpenVideo?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ profile, onOpenVideo }) => {
+export const Hero: React.FC<HeroProps> = ({ profile }) => {
   const rawPhone = profile.whatsapp.replace(/\D/g, '');
   const waUrl = `https://wa.me/${rawPhone}?text=${encodeURIComponent(
     `Olá ${profile.name}! Vi seu site oficial e gostaria de agendar uma aula experimental / falar sobre o Personal Fight e treinos.`
@@ -93,28 +92,17 @@ export const Hero: React.FC<HeroProps> = ({ profile, onOpenVideo }) => {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-impact tracking-wider text-base sm:text-lg uppercase flex items-center justify-center gap-3 shadow-xl shadow-emerald-950/50 transition-all hover:scale-[1.02] cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-impact tracking-wider text-lg uppercase flex items-center justify-center gap-3 shadow-xl shadow-emerald-950/50 transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <span className="text-xl">🥋</span>
                 <span>AGENDAR AULA PARTICULAR</span>
               </a>
 
-              {onOpenVideo && (
-                <button
-                  type="button"
-                  onClick={onOpenVideo}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 font-impact tracking-wider text-base uppercase flex items-center justify-center gap-2 border border-emerald-500/50 hover:border-emerald-400 transition-all cursor-pointer shadow-lg shadow-emerald-950/40"
-                >
-                  <Play className="w-4 h-4 fill-emerald-400" />
-                  <span>ASSISTIR VÍDEO DO SITE</span>
-                </button>
-              )}
-
               <a
                 href="#aulas"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-300 font-impact tracking-wider text-base uppercase flex items-center justify-center gap-2 border border-stone-800 hover:border-stone-700 transition-all cursor-pointer"
+                className="w-full sm:w-auto px-7 py-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-200 font-impact tracking-wider text-base uppercase flex items-center justify-center gap-2 border border-stone-700 hover:border-stone-500 transition-all cursor-pointer"
               >
-                <span>VER PLANOS</span>
+                <span>VER PLANOS DE PERSONAL</span>
                 <ChevronRight className="w-4 h-4 text-emerald-500" />
               </a>
             </div>
