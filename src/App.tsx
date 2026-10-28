@@ -15,6 +15,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { MobileQuickBar } from './components/MobileQuickBar';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
+import { VideoModal } from './components/VideoModal';
 
 import {
   initialProfile,
@@ -26,6 +27,7 @@ export default function App() {
   const [profile] = useState<ProfessorProfile>(initialProfile);
   const [selectedService, setSelectedService] = useState<BJJService | null>(null);
   const [bookingService, setBookingService] = useState<string>('Personal Fight VIP (Particular)');
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const handleBookClass = (serviceTitle?: string) => {
     if (serviceTitle) {
@@ -48,7 +50,8 @@ export default function App() {
         <Hero
           profile={profile}
           onOpenBooking={() => handleBookClass('Personal Fight VIP (Particular)')}
-          onOpenCurriculum={() => setIsCurriculumOpen(true)}
+          onOpenCurriculum={() => {}}
+          onOpenVideo={() => setIsVideoOpen(true)}
         />
 
         {/* Training Pillars Section */}
@@ -102,6 +105,11 @@ export default function App() {
         profile={profile}
         onClose={() => setSelectedService(null)}
         onBookClass={handleBookClass}
+      />
+
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
       />
     </div>
   );
